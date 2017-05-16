@@ -26,8 +26,32 @@ body {
   margin-left: 15px;
   margin-top: 15px;
   width: 140px;
+  cursor: pointer;
 }
+
+.card:active {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 30px;
+  width: 450px;
+  overflow: hidden;
+  -webkit-transition-duration: .2s;
+}
+
+/*
+TODO: :hover applies also when it's :active
+.card:hover {
+  transform: scale(1.1);
+  -webkit-transition-duration: .2s;
+  z-index: 3;
+}
+*/
 
 #cards {
   margin-top: -15px;
+}
+
+.blur {
+  -webkit-filter: blur(5px) grayscale(50%);
 }
