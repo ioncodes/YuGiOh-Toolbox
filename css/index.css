@@ -51,7 +51,3 @@ TODO: :hover applies also when it's :active
 #cards {
   margin-top: -15px;
 }
-
-.blur {
-  -webkit-filter: blur(5px) grayscale(50%);
-}

@@ -23,7 +23,7 @@ function searchCards() {
         var cardImage = imageUrl + output[i]
         var cards = document.getElementById('cards')
         
-        var img = document.createElement("img")
+        var img = document.createElement('img')
         img.src = cardImage
         img.alt = cardInfo.name
         img.className = 'card'

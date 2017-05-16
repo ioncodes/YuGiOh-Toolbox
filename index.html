@@ -9,9 +9,11 @@
 </head>
 
 <body>
-    <input id="searchbox" class="textbox" type="text" placeholder="Cardname..." value="" onKeydown="handleEnter(event)"/>
-    <div id="cards">
-        
+    <div v-if="cards">
+        <input id="searchbox" class="textbox" type="text" placeholder="Cardname..." value="" onKeydown="handleEnter(event)" />
+        <div id="cards">
+
+        </div>
     </div>
 
     <script src="js/index.js"></script>
