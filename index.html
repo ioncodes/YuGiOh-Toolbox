@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Yu-Gi-Oh Toolbox</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <input id="searchbox" class="textbox" type="text" placeholder="Cardname..." value="" onKeydown="handleEnter(event)" />
+    <input type="checkbox" id="language" checked>
+    <label for="language" id="language-label">English?</label>
     <div id="cards">
 
     </div>

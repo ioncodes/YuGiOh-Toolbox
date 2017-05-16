@@ -3,6 +3,8 @@ const dbUrl = 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&
 const cardUrl = 'http://yugiohprices.com/api/card_data/'
 const imageUrl = 'http://yugiohprices.com/api/card_image/'
 const dbRegex = /<strong>(.+)<\/strong>/g
+const dbLanguageRegex = /value="(card_search.+)">/g
+const dbEnglishNameRegex = /<span>(.+)<\/span>/
 
 function handleEnter(e) {
   if(e.keyCode === 13){
@@ -11,10 +13,26 @@ function handleEnter(e) {
 }
 
 function searchCards() {
-  request(dbUrl + document.getElementById('searchbox').value, function (error, response, body) {
+  request(dbUrl + encodeURI(document.getElementById('searchbox').value), function (error, response, body) {
     var matches, output = []
     while (matches = dbRegex.exec(body)) {
       output.push(matches[1])
+    }
+    console.log(dbUrl + encodeURI(document.getElementById('searchbox').value))
+    console.log(output)
+    if(!document.getElementById('language').checked) {
+      var matches, lngs = []
+      console.log(body)
+      while (matches = dbLanguageRegex.exec(body)) {
+        lngs.push('https://www.db.yugioh-card.com/yugiohdb/' + matches[1])
+      }
+      console.log(lngs)
+      for(let i = 0; i < lngs.length; i++) {
+        request(lngs[i], function (error, response, body) {
+          var enName = body.match(dbEnglishNameRegex)[1]
+          output[i] = enName
+        })
+      }
     }
     // output stores official cardnames
     for(let i = 0; i < output.length; i++) {

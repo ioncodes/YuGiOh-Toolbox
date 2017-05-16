@@ -5,11 +5,11 @@
   height: 30px;
   padding-left: 7px;
   background-color: #1C1C1C;
-  color: white;
+  color: #929292;
 }
 
 #searchbox {
-  width: 445px;
+  width: 350px;
   margin: 15px;
 }
 
@@ -50,4 +50,12 @@ TODO: :hover applies also when it's :active
 
 #cards {
   margin-top: -15px;
+}
+
+#language-label {
+  color: #929292;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
 }
